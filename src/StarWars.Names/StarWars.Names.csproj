@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <!-- Nuget: https://docs.microsoft.com/en-us/dotnet/core/tools/csproj#nuget-metadata-properties -->
+  <PropertyGroup>
+    <Authors>Michael Wolfenden</Authors>
+    <Description>
+      Get random names from Star Wars characters.
+    </Description>
+    <PackageProjectUrl>https://github.com/michael-wolfenden/StarWarsNames</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/michael-wolfenden/StarWarsNames</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/michael-wolfenden/StarWarsNames/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageIconUrl>https://raw.github.com/michael-wolfenden/StarWarsNames/assets/blob/master/logo.png</PackageIconUrl>
+  </PropertyGroup>
+  <!-- End Nuget -->
+
+  <!-- Sourcelink: https://github.com/dotnet/sourcelink/ -->
+  <PropertyGroup>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-62925-02" PrivateAssets="All"/>
+  </ItemGroup>
+  <!-- End Sourcelink -->
+
+</Project>
