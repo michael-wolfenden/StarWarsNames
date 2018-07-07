@@ -13,7 +13,7 @@
     <PackageProjectUrl>https://github.com/michael-wolfenden/StarWarsNames</PackageProjectUrl>
     <RepositoryUrl>https://github.com/michael-wolfenden/StarWarsNames</RepositoryUrl>
     <PackageLicenseUrl>https://github.com/michael-wolfenden/StarWarsNames/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageIconUrl>https://raw.github.com/michael-wolfenden/StarWarsNames/assets/blob/master/logo.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/michael-wolfenden/StarWarsNames/master/assets/logo.png</PackageIconUrl>
   </PropertyGroup>
   <!-- End Nuget -->
 
