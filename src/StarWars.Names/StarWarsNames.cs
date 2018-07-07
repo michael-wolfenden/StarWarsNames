@@ -97,6 +97,7 @@ namespace StarWars.Names
             "Visas Marr",
             "Watto",
             "Wedge Antilles",
+            "Wullf Yularen",
             "Yoda",
             "Zam Wesell",
             "Zayne Carrick",
