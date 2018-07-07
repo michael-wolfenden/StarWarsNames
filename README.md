@@ -1,7 +1,7 @@
 # StarWars Names
 
 [![appveyor](https://img.shields.io/appveyor/ci/michael-wolfenden/StarWarsNames.svg?style=flat?style=flat-square)](https://ci.appveyor.com/project/michael-wolfenden/StarWarsNames)
-[![nuget](https://img.shields.io/nuget/v/StarWarsNames.svg?style=flat-square)](https://www.nuget.org/packages/StarWarsNames/)
+[![nuget](https://img.shields.io/nuget/v/StarWars.Names.svg?style=flat-square)](https://www.nuget.org/packages/StarWars.Names/)
 [![github license](https://img.shields.io/github/license/michael-wolfenden/StarWarsNames.svg)](https://github.com/michael-wolfenden/StarWarsNames/blob/master/LICENSE)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
 
