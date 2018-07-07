@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/michael-wolfenden/StarWarsNames/compare/v1.1.0...v1.1.1) (2018-07-07)
+
+
+### Bug Fixes
+
+* Use the correct url for the NuGet icon ([5bd3451](https://github.com/michael-wolfenden/StarWarsNames/commit/5bd3451))
+
 # [1.1.0](https://github.com/michael-wolfenden/StarWarsNames/compare/v1.0.0...v1.1.0) (2018-07-07)
 
 
