@@ -11,8 +11,10 @@ Param
 $CAKE_DIR = [io.path]::combine($ToolsDir, "Cake.CoreCLR.$CakeVersion")
 $CAKE_DLL = [io.path]::combine($CAKE_DIR, "cake.coreclr", "$CakeVersion", "Cake.dll")
 
-if (-not (Test-Path $ToolsProj))
+if (!(Test-Path $CAKE_DLL))
 {
+    Remove-Item $ToolsDir -Force -Recurse -ErrorAction SilentlyContinue | Out-Null
+
     $projectFileContents = '<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>Exe</OutputType><TargetFramework>netcoreapp2.0</TargetFramework></PropertyGroup></Project>'
 
     New-Item -Force -Path $ToolsDir -type directory | Out-Null
@@ -21,7 +23,7 @@ if (-not (Test-Path $ToolsProj))
     dotnet add "$ToolsProj" package cake.coreclr -v "$CakeVersion" --package-directory "$CAKE_DIR"
 }
 
-if (-not (Test-Path $CAKE_DLL))
+if (!(Test-Path $CAKE_DLL))
 {
     Write-Error "Could not find Cake assembly '$CAKE_DLL'"
 }
