@@ -20,10 +20,6 @@ I guess you _could_ use this to generate random Star Wars character names, howev
 - [x] Testing via [xUnit.net](https://xunit.github.io/)
 - [x] [EditorConfig](https://docs.microsoft.com/en-us/visualstudio/ide/create-portable-custom-editor-options) support
 
-### Todo
-
-- [ ] A dependency of `semantic-release` is writting to `stderr` causing red output in the windows build. NOTE: this is not causing the build to fail, just looks ugly. [Issue here](https://github.com/semantic-release/semantic-release/issues/816)
-
 ## Installation
 
 This package is distributed via NuGet:
