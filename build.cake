@@ -10,7 +10,7 @@ var buildContext = new BuildContext(projectName, Context);
 
 Action<NpxSettings> requiredSemanticVersionPackages = settings => settings
     .AddPackage("semantic-release@15.8.0")
-    .AddPackage("@semantic-release/changelog@3.0.0)
+    .AddPackage("@semantic-release/changelog@3.0.0")
     .AddPackage("@semantic-release/git@7.0.0")
     .AddPackage("@semantic-release/exec@2.3.0");
 
