@@ -38,6 +38,28 @@ var randomName = starWarsNames.Random();
 var threeRandomNames = starWarsNames.Random(3);
 ```
 
+## Access tokens
+
+`semantic-release` requires both a **GitHub** and **NuGet** authentication token to be made available via the `GITHUB_TOKEN` and `NUGET_TOKEN` environment variables
+
+### GITHUB_TOKEN
+This token is used to authenticate with GitHub to read repository information, publish a GitHub release and upload files.
+
+Create a [new personal access token](https://github.com/settings/tokens/new) with following scopes:
+
+![access token scopes](https://i.imgur.com/Mq7475E.png "access token scopes")
+
+### NUGET_TOKEN
+This token is used to authenticate with NuGet to push packages.
+
+Create a [new api key](https://www.nuget.org/account/apikeys) with following scopes:
+
+![api key scopes](https://i.imgur.com/ohPpDj6.png "api key scopes")
+
+### Using the tokens
+
+Once you have both tokens, you can use [appveyor's encryption](https://ci.appveyor.com/tools/encrypt) to create [secure variables](https://www.appveyor.com/docs/build-configuration/#secure-variables) from them. You can now safely put the secure variables into `appveyor.yml` even though they are publicly visible as they are only tied to _your_ account.
+
 ## Credits
 This is a port of the [original project](https://github.com/kentcdodds/starwars-names) by [Kent C. Dodds](https://kentcdodds.com/)
 
