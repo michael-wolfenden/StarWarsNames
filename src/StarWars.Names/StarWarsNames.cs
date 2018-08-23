@@ -87,6 +87,7 @@ namespace StarWars.Names
             "R2-D2",
             "Rahm Kota",
             "Revan",
+            "Salacious B. Crumb",
             "Satele Shan",
             "Savage Opress",
             "Sebulba",
