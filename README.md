@@ -62,7 +62,7 @@ Once you have both tokens, you can use [appveyor's encryption](https://ci.appvey
 
 ### Using the tokens with Azure Pipelines
 
-Once you have both tokens, you can add `GITHUB_TOKEN` AND `NUGET_TOKEN` as [secret Pipeline variables](
+Once you have both tokens, you can add `GITHUB_TOKEN` and `NUGET_TOKEN` as [secret Pipeline variables](
 https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=vsts&tabs=yaml%2Cbatch#secret-variables) in your PipeLine's settings. They will automatically be decrypted in the `azure-pipelines.yml` script.
 
 ## Credits
