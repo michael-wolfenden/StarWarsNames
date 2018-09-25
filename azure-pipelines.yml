@@ -1,0 +1,38 @@
+# Perform linux build followed by the windows build in sequence as
+# the windows build will trigger the release on success
+
+# NOTE: you must have the following variables set in your pipeline as secret variables
+# https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=vsts&tabs=yaml%2Cbatch#secret-variables
+# GITHUB_TOKEN
+# NUGET_TOKEN
+
+jobs:
+- job: Linux
+  pool:
+    vmImage: ubuntu-16.04
+  steps:
+  - task: NodeTool@0
+    inputs:
+      # semantic-version requires node > 8.3
+      versionSpec: 10.3.0
+  - powershell: .\build.ps1
+    env:
+      # need to explicitly map so they are decrypted
+      GITHUB_TOKEN: $(GITHUB_TOKEN)
+      NUGET_TOKEN: $(NUGET_TOKEN)
+
+- job: Windows
+  dependsOn:
+  - Linux
+  pool:
+    vmImage: vs2017-win2016
+  steps:
+  - task: NodeTool@0
+    inputs:
+      # semantic-version requires node > 8.3
+      versionSpec: 10.3.0
+  - powershell: .\build.ps1
+    env:
+      # need to explicitly map so they are decrypted
+      GITHUB_TOKEN: $(GITHUB_TOKEN)
+      NUGET_TOKEN: $(NUGET_TOKEN)

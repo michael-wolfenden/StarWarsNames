@@ -67,7 +67,7 @@ Task("Clean")
 });
 
 /*
-Normally this task should only run based on the 'IsRunningOnAppveyorMasterBranch' condition,
+Normally this task should only run based on the 'IsRunningOnRemoteMasterBranch' condition,
 however sometimes you want to run this locally to preview the next sematic version
 number and changlelog.
 
@@ -81,9 +81,9 @@ so that semantic-release can access the repository
 */
 Task("Get_next_release_number")
     .WithCriteria<BuildContext>(
-        (_, buildContext) => buildContext.IsRunningOnAppveyorMasterBranch ||
+        (_, buildContext) => buildContext.IsRunningOnRemoteMasterBranch ||
                              buildContext.Target == "Get_next_release_number",
-        "Skipped as build not triggered by Appveyor 'master' branch commit"
+        "Skipped as build not triggered by remote 'master' branch commit"
     )
     .Does<BuildContext>(buildContext =>
 {
@@ -155,8 +155,8 @@ Task("Package")
 
 Task("Release")
     .WithCriteria<BuildContext>((_, buildContext) =>
-        buildContext.IsRunningOnAppveyorMasterBranch,
-        "Skipped as build not triggered by Appveyor 'master' branch commit"
+        buildContext.IsRunningOnRemoteMasterBranch,
+        "Skipped as build not triggered by remote 'master' branch commit"
     )
     .WithCriteria<BuildContext>((_, buildContext) =>
         buildContext.HasReleaseVersionChanged,
@@ -194,7 +194,7 @@ public class BuildContext
     public string Configuration { get; }
     public string Target { get; }
     public string ArtifactsDir { get; }
-    public bool IsRunningOnAppveyorMasterBranch { get; }
+    public bool IsRunningOnRemoteMasterBranch { get; }
     public FilePathCollection Solutions { get; }
     public FilePathCollection TestProjects { get; }
     public FilePathCollection NonTestProjects { get; }
@@ -214,10 +214,9 @@ public class BuildContext
         Configuration = context.Argument<string>("configuration", "Release");
 
         IsRunningOnWindows = context.IsRunningOnWindows();
-        IsRunningOnAppveyorMasterBranch = StringComparer.OrdinalIgnoreCase.Equals(
-            "master",
-            context.BuildSystem().AppVeyor.Environment.Repository.Branch
-        );
+        IsRunningOnRemoteMasterBranch =
+            StringComparer.OrdinalIgnoreCase.Equals("master", context.BuildSystem().AppVeyor.Environment.Repository.Branch) ||
+            StringComparer.OrdinalIgnoreCase.Equals("master", context.BuildSystem().TFBuild.Environment.Repository.Branch);
 
         ArtifactsDir =  context.Directory("./artifacts");
         Solutions = context.GetFiles("./src/*.sln");

@@ -17,7 +17,7 @@ I guess you _could_ use this to generate random Star Wars character names, howev
 
 - [x] Automatic Versioning, Publishing and Changelog generation using [semantic-release](https://github.com/semantic-release/semantic-release)
 - [x] [SourceLink](https://github.com/dotnet/sourcelink/) support
-- [x] Performs both Windows and Linux builds using [AppVeyor](https://www.appveyor.com/) and [Cake](https://cakebuild.net/)
+- [x] Performs both Windows and Linux builds using [AppVeyor](https://www.appveyor.com/) or [Azure Pipleines](https://azure.microsoft.com/en-au/services/devops/pipelines/) and [Cake](https://cakebuild.net/)
 - [x] Testing via [xUnit.net](https://xunit.github.io/)
 - [x] [EditorConfig](https://docs.microsoft.com/en-us/visualstudio/ide/create-portable-custom-editor-options) support
 
@@ -56,9 +56,14 @@ Create a [new api key](https://www.nuget.org/account/apikeys) with following sco
 
 ![api key scopes](https://i.imgur.com/ohPpDj6.png "api key scopes")
 
-### Using the tokens
+### Using the tokens with Appveyor
 
 Once you have both tokens, you can use [appveyor's encryption](https://ci.appveyor.com/tools/encrypt) to create [secure variables](https://www.appveyor.com/docs/build-configuration/#secure-variables) from them. You can now safely put the secure variables into `appveyor.yml` even though they are publicly visible as they are only tied to _your_ account.
+
+### Using the tokens with Azure Pipelines
+
+Once you have both tokens, you can add `GITHUB_TOKEN` AND `NUGET_TOKEN` as [secret Pipeline variables](
+https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=vsts&tabs=yaml%2Cbatch#secret-variables) in your PipeLine's settings. They will automatically be decrypted in the `azure-pipelines.yml` script.
 
 ## Credits
 This is a port of the [original project](https://github.com/kentcdodds/starwars-names) by [Kent C. Dodds](https://kentcdodds.com/)
