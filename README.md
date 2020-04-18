@@ -1,5 +1,11 @@
 # StarWars Names
 
+### [DEPRECATED] This repository is no longer maintained
+> While this project is fully functional, the dependencies are no longer up to date. You are still welcome to explore, learn, and use the code provided here.
+>
+> See [Reference.AzurePipelines](https://github.com/michael-wolfenden/Reference.AzurePipelines) for a better maintained version with additional features 
+
+[![No longer maintained](https://img.shields.io/badge/Maintenance-OFF-red.svg)]
 [![appveyor](https://ci.appveyor.com/api/projects/status/github/michael-wolfenden/StarWarsNames?svg=true)](https://ci.appveyor.com/project/michael-wolfenden/StarWarsNames)
 [![tests](https://img.shields.io/appveyor/tests/michael-wolfenden/StarWarsNames.svg)](https://ci.appveyor.com/project/michael-wolfenden/StarWarsNames)
 [![nuget](https://img.shields.io/nuget/v/StarWars.Names.svg)](https://www.nuget.org/packages/StarWars.Names/)
